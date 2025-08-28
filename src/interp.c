@@ -198,7 +198,7 @@ void interpolate_lsp(codec2_fft_cfg fft_fwd_cfg,
 
   /* convert back to amplitudes */
 
-  lsp_to_lpc(lsps_interp, ak_interp, LPC_ORD);
+  codec2_lsp_to_lpc(lsps_interp, ak_interp, LPC_ORD);
   aks_to_M2(fft_fwd_cfg, ak_interp, LPC_ORD, interp, e, &snr, 0, 0, 1, 1,
             LPCPF_BETA, LPCPF_GAMMA);
   // printf("  interp: ak[1]: %f A[1] %f\n", ak_interp[1], interp->A[1]);
