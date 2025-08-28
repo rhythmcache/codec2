@@ -149,7 +149,7 @@ int main(int argc, char *argv[]) {
       {"vq_pitch_e", no_argument, &vector_quant_Wo_e, 1},
       {"rate", required_argument, NULL, 0},
       {"gain", required_argument, NULL, 0},
-      {"bpf", no_argument, &bpf_en, 1},
+      {"codec2_bpf", no_argument, &bpf_en, 1},
       {"bpfb", no_argument, &bpfb_en, 1},
       {"amread", required_argument, &amread, 1},
       {"hmread", required_argument, &hmread, 1},
@@ -628,7 +628,7 @@ int main(int argc, char *argv[]) {
       if (bpfb_en)
         inverse_filter(&bpf_buf[BPF_N], bpfb, N_SAMP, buf_float, BPF_N);
       else
-        inverse_filter(&bpf_buf[BPF_N], bpf, N_SAMP, buf_float, BPF_N);
+        inverse_filter(&bpf_buf[BPF_N], codec2_bpf, N_SAMP, buf_float, BPF_N);
     }
 
     /* shift buffer of input samples, and insert new samples */
