@@ -11,14 +11,4 @@ set(CMAKE_SYSTEM_LIBRARY_PATH @CMAKE_SYSTEM_LIBRARY_PATH@)
 set(CMAKE_FIND_ROOT_PATH @CMAKE_FIND_ROOT_PATH@)
 set(CODEC2_DLL ${CMAKE_BINARY_DIR}/src/libcodec2.dll)
 
-include(${CMAKE_SOURCE_DIR}/cmake/GetPrerequisites.cmake)
-get_prerequisites(${CODEC2_DLL} _deps 1 0 "" "")
-foreach(_runtime ${_deps})
-    message("Looking for ${_runtime}")
-    find_library(RUNTIME_${_runtime} ${_runtime})
-    message("${RUNTIME_${_runtime}}")
-    if(RUNTIME_${_runtime})
-        file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin"
-        TYPE EXECUTABLE FILES "${RUNTIME_${_runtime}}")
-    endif()
-endforeach()
+
